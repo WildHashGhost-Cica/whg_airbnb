@@ -8,7 +8,7 @@ import SmallCard from '../components/SmallCard';
 export default function Home({exploreData}) {
 
   return (
-    <div className="">
+    <div className="bg-black">
       <Head>
         <title>WildHashGhost_airbnb</title>
         <link rel="icon" href="/favicon.ico" />

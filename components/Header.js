@@ -6,17 +6,18 @@ import { GlobeAltIcon, MenuIcon, SearchIcon, UserCircleIcon, } from "@heroicons/
 
 function Header() {
     return (
-        <header className="sticky top-0 z-50 grid grid-cols-3 bg-black text-blue-400 shadow-md p-5 md:px-10">
+        <header className="sticky top-0 z-50 grid grid-cols-3 bg-black text-blue-400 shadow-md p-5 md:px-10" >
             {/*Left*/}
-            <div className="relative flex items-center h-10 cursor-pointer my-auto ">
+            <div className="relative flex items-center h-10 cursor-pointer my-auto w-16 h-16 ">
                 
                 <Image
                 src={logo}
                 layout="fill" 
                 objectFit="contain"
                 objectPosition="left"
+                className="rounded-full"
                 /> 
-            <p style={{paddingLeft:"50px", fontSize:"30px"}}><b>airbnb</b></p>
+            <p style={{paddingLeft:"70px", fontSize:"30px"}}><b>airbnb</b></p>
             </div>
             
             {/*Midle - Search*/}
