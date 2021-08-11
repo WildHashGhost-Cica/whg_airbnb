@@ -19,7 +19,7 @@ export default function Home({exploreData}) {
       <main className="max-w-7xl mx-auto px-8 sm:px-16 bg-black text-blue-400 border-2 border-blue-400">
         <section className="pt-5">
           <h2 className="text-4xl font-semibold pb-5 ">Explore Nearby</h2>
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"> 
           {/* Pull some data from a server -API endpoints*/}
           {exploreData?.map(({img, distance, location}) =>(
             <SmallCard 
@@ -29,6 +29,7 @@ export default function Home({exploreData}) {
             location={location}
             />
           ))}
+          </div>
         </section>
       </main>
 
