@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from "next/image";
 import logo from "../Images/whg.png";
 import { GlobeAltIcon, MenuIcon, SearchIcon, UserCircleIcon, } from "@heroicons/react/solid"
 
 
 function Header() {
+
+    const [searchInput, setSearchInput] = useState("");
+
+    
+
     return (
         <header className="sticky top-0 z-50 grid grid-cols-3 bg-black text-blue-400 shadow-md p-5 md:px-10" >
             {/*Left*/}
@@ -22,7 +27,10 @@ function Header() {
             
             {/*Midle - Search*/}
             <div className="flex items-center md:border-2 border-blue-400 rounded-full py-2 bg-black">
-                <input type="text" placeholder="Searching for" className="flex-grow pl-5 bg-transparent outline-none placeholder-white"/>
+                <input 
+                value={searchInput}
+                onChange={(e)=> setSearchInput(e.target.value)}
+                type="text" placeholder="Searching for" className="flex-grow pl-5 bg-transparent outline-none placeholder-white"/>
                 <SearchIcon className=" hidden md:inline-flex h-8 pr-3 bg-white-400 text-blue rounded-full p-1 cursor-pointer"/>
             </div>
             {/*Right*/}
@@ -35,7 +43,12 @@ function Header() {
                     <UserCircleIcon className="h-6" />
                 </div>
             </div>
-        
+            {searchInput && (
+                <div>
+                    
+                </div>
+            )}
+            
         </header>
         
     )
