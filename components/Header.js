@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import logo from "../Images/whg.png";
-import { GlobeAltIcon, MenuIcon, SearchIcon, UserCircleIcon, } from "@heroicons/react/solid"
+import { GlobeAltIcon, MenuIcon, SearchIcon, UserCircleIcon, } from "@heroicons/react/solid";
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css';
 
 
 function Header() {
