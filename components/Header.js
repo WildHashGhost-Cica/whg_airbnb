@@ -1,14 +1,35 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import logo from "../Images/whg.png";
-import { GlobeAltIcon, MenuIcon, SearchIcon, UserCircleIcon, } from "@heroicons/react/solid";
+import { GlobeAltIcon, MenuIcon, SearchIcon, UserCircleIcon, UserIcon, } from "@heroicons/react/solid";
 import 'react-date-range/dist/styles.css'; 
 import 'react-date-range/dist/theme/default.css';
+import { DateRangePicker } from 'react-date-range';
 
 
 function Header() {
 
     const [searchInput, setSearchInput] = useState("");
+
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [noOfGuests, setNoOfGuests] = useState(1);
+
+    const handleSelect = (ranges) => {
+        setStartDate(ranges.selection.startDate);
+        setEndDate(ranges.selection.endDate)
+    }
+
+    const resetInput = () => {
+        setSearchInput("");
+    }
+    
+
+    const selectionRange = {
+        startDate: startDate,
+        endDate: endDate,
+        key: "selection"
+    }
 
     
 
@@ -46,8 +67,31 @@ function Header() {
                 </div>
             </div>
             {searchInput && (
-                <div>
+                <div className="flex flex-col col-span-3 mx-auto mt-2">
+                <DateRangePicker
+                    ranges={[selectionRange]}
+                    minDate={new Date()}
+                    rangeColors={["#1da1f2"]}
+                    onChange={handleSelect}
                     
+                />
+                <div className="flex items-center border-b border-blue-800 mb-4">
+                    <h2 className="text-2xl flex-grow font-semibold">Number of Guests</h2>
+
+                    <UserIcon className="h-5"/>
+                    <input 
+                    value={noOfGuests} 
+                    onChange={e => setNoOfGuests(e.target.value)} 
+                    type="number" 
+                    min={1}
+                    className="w-12 pl-2 text-lg outline-none text-red-400"/>
+                </div>
+
+                    <div className="flex">
+                        <button onClick={resetInput} className="flex-grow text-white-300">Cancel</button>
+                        <button className="flex-grow text-red-400 w-120">Search</button>
+                    </div>
+
                 </div>
             )}
             
